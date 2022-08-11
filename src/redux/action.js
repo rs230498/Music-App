@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const getMusicRecords = (params) => (dispatch) => {
     dispatch({ type: types.GET_MUSIC_RECORD_REQUEST })
-    return axios.get("http://localhost:8080/albums",params)
+    return axios.get("https://fake-server-app11111.herokuapp.com/albums",params)
     .then(r => {
         return dispatch({ 
             type: types.GET_MUSIC_RECORD_SUCCESS,
@@ -19,7 +19,7 @@ const getMusicRecords = (params) => (dispatch) => {
 const updateMusicRecord = (id, payload) => (dispatch) => {
     dispatch({ type: types.UPDATE_MUSIC_RECORD_REQUEST });
     return axios
-    .patch(`http://localhost:8080/albums/${id}`, payload)
+    .patch(`https://fake-server-app11111.herokuapp.com/${id}`, payload)
     .then((r) => dispatch({ type: types.UPDATE_MUSIC_RECORD_SUCCESS }))
     .catch((e) => dispatch({ type: types.UPDATE_MUSIC_RECORD_FAILURE }));
     }; 
